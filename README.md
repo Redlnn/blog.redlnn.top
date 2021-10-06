@@ -1,4 +1,4 @@
-# Red_lnn の后花园
+# Red_lnn の 后花园
 
  👉 [传送门](https://blog.redlnn.top/) （小水管服务器，打开较慢）
 
@@ -29,7 +29,7 @@ yarn install
 - 清理临时文件
 
 ```bash
-yarn lint
+hexo clean
 ```
 
 - 开启本地服务器（开发环境，热重载）
@@ -47,4 +47,5 @@ hexo b
 #### 配置
 
 👉 [Hexo 配置参考](https://hexo.io/zh-cn/docs/).
+
 👉 [Fluid 配置参考](https://hexo.fluid-dev.com/docs/start/).

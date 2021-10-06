@@ -1,0 +1,7 @@
+.markdown-body code:not(.hljs),
+.markdown-body pre:not(.hljs) {
+    margin: 0 .2rem;
+    color: #f0615c;
+    background-color: rgba(175,184,193,.2);
+    font-family: Cascadia Mono PL,Source Code Pro,Source Han Mono,Noto Mono,ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+}

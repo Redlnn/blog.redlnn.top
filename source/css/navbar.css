@@ -1,0 +1,7 @@
+.navbar .nav-item a.nav-link:hover {
+    color: white;
+}
+
+[data-user-color-scheme=dark] .page-header {
+    color: white;
+}

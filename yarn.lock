@@ -1115,7 +1115,7 @@ finalhandler@1.1.2:
 
 find-up@^1.0.0:
   version "1.1.2"
-  resolved "https://registry.npmmirror.com/find-up/download/find-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
+  resolved "https://registry.npmmirror.com/find-up/download/find-up-1.1.2.tgz?cache=0&sync_timestamp=1633618766404&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ffind-up%2Fdownload%2Ffind-up-1.1.2.tgz#6b2e9822b1a2ce0a60ab64d610eccad53cb24d0f"
   integrity sha1-ay6YIrGizgpgq2TWEOzK1TyyTQ8=
   dependencies:
     path-exists "^2.0.0"
@@ -1527,17 +1527,17 @@ hexo@^5.0.0:
 
 highlight.js@^10.7.1:
   version "10.7.3"
-  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-10.7.3.tgz?cache=0&sync_timestamp=1632754310226&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fhighlight.js%2Fdownload%2Fhighlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
+  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-10.7.3.tgz#697272e3991356e40c3cac566a74eef681756531"
   integrity sha1-aXJy45kTVuQMPKxWanTu9oF1ZTE=
 
 highlight.js@^11.2.0:
   version "11.2.0"
-  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-11.2.0.tgz?cache=0&sync_timestamp=1632754310226&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fhighlight.js%2Fdownload%2Fhighlight.js-11.2.0.tgz#a7e3b8c1fdc4f0538b93b2dc2ddd53a40c6ab0f0"
+  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-11.2.0.tgz#a7e3b8c1fdc4f0538b93b2dc2ddd53a40c6ab0f0"
   integrity sha1-p+O4wf3E8FOLk7LcLd1TpAxqsPA=
 
 highlight.js@^9.15.6:
   version "9.18.5"
-  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-9.18.5.tgz?cache=0&sync_timestamp=1632754310226&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fhighlight.js%2Fdownload%2Fhighlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
+  resolved "https://registry.npmmirror.com/highlight.js/download/highlight.js-9.18.5.tgz#d18a359867f378c138d6819edfc2a8acd5f29825"
   integrity sha1-0Yo1mGfzeME41oGe38KorNXymCU=
 
 hosted-git-info@^2.1.4:

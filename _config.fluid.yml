@@ -201,6 +201,7 @@ custom_css:
   - /css/scrollbar.css
   - /css/navbar.css
   - /css/post.css
+  - /css/aplayer-lrc.css
 
 # 自定义 <head> 节点中的 HTML 内容
 # Customize <head> HTML content

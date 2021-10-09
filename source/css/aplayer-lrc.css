@@ -1,0 +1,8 @@
+.aplayer.aplayer-fixed .aplayer-lrc {
+    text-shadow: 0px 0px 5px #197fdf, 0px 1px 2px #197fdf, 0px -1px 2px #197fdf, 1px 0px 2px #197fdf,
+        -1px 0px 2px #197fdf !important;
+}
+
+.aplayer .aplayer-lrc p {
+    color: white !important;
+}

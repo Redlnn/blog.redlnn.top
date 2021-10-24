@@ -17,11 +17,11 @@ git clone git@github.com:Redlnn/blog.redlnn.top.git
 #### 安装依赖
 
 > 进入本仓库根目录后再执行命令  
-  执行前，请确保已配置好 `Node.js` 及 `npm`，并全局安装了 `yarn`  
-  环境：`Node.js@^14.18.0` & `yarn@^1.22.15`
+> 执行前，请确保已配置好 `Node.js` 及 `npm`，并全局安装了 `pnpm`  
+> 环境：`Node.js@^14.18.1` & `pnpm@^6.18.0`
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### 可用指令
@@ -29,19 +29,19 @@ yarn install
 - 清理临时文件
 
 ```bash
-hexo clean
+pnpm clean
 ```
 
 - 开启本地服务器（开发环境，热重载）
 
 ```bash
-hexo s
+pnpm serve
 ```
 
 - 生成可发布到生产环境的文件
 
 ```bash
-hexo b
+pnpm build
 ```
 
 #### 配置

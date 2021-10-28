@@ -7,13 +7,18 @@
     "clean": "hexo clean",
     "deploy": "hexo deploy",
     "serve": "hexo server",
-    "server": "hexo server"
+    "server": "hexo server",
+    "lint": "eslint --color",
+    "lint:fix": "eslint --color --fix"
   },
   "hexo": {
     "version": "5.4.0"
   },
   "dependencies": {
     "@upupming/hexo-renderer-markdown-it-plus": "^2.0.2",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "hexo": "^5.4.0",
     "hexo-all-minifier": "^0.5.7",
     "hexo-generator-archive": "^1.0.0",
@@ -26,6 +31,7 @@
     "hexo-theme-fluid": "^1.8.12",
     "hexo-theme-landscape": "^0.0.3",
     "highlight.js": "^11.3.1",
+    "prettier": "^2.4.1",
     "stylus": "^0.55.0"
   }
 }

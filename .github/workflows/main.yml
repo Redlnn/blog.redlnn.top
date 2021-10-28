@@ -49,5 +49,5 @@ jobs:
             cd redlnn.top
             tar -xzvf /tmp/release.tgr.gz
             rm -rf /tmp/release.tgr.gz
-            mv hexo hexo.bak
+            ./backup.sh hexo
             mv public hexo

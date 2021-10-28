@@ -1,12 +1,16 @@
 .DS_Store/
-Thumbs.db
-
 node_modules/
-__pycache__/
 
 /public/
-db.json
-.deploy*/
+/scaffolds/
+/source/_posts
+/source/img
+
+.gitignore
+.eslintignore
+.prettierignore
+LICENSE
+pnpm-lock.yaml
 
 # local env files
 .env.local

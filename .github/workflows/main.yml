@@ -26,11 +26,9 @@ jobs:
       - run: python3 ./python_scripts/compress_by_brotli.py
       - run: python3 ./python_scripts/compress_by_gzip.py
       - run: python3 ./python_scripts/convert_img2webp.py
-
       - run: tar -zcvf release.tgr.gz ./public/
-        # 把.nuxt、nuxt.config.js等文件，打包压缩为release.tgz
 
-      - name: copy file via ssh password
+      - name: copy file via ssh key
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}

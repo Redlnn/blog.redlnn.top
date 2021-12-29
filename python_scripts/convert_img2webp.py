@@ -45,7 +45,7 @@ for _ in os.listdir(os.path.join('source', 'img')):
                             f = f.resize((int(f.width/(f.height/1280)), 1280),
                                          resample=Image.LANCZOS, reducing_gap=True)
                         elif 1280 > f.width >= 800:
-                            f = f.resize(int(f.width/(f.height/800)), (800),
+                            f = f.resize((int(f.width/(f.height/800)), 800),
                                          resample=Image.LANCZOS, reducing_gap=True)
                         f.save(convert_path, 'WebP',
                                quality=70, method=6, allow_mixed=True)

@@ -1,25 +1,24 @@
 name: "build and deploy"
-on: push
+on:
+  push:
+    branches: [ master ]
 jobs:
   build-and-deploy:
     if: github.actor != 'depbot'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
-
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@main
+      - uses: pnpm/action-setup@v2
         with:
-          node-version: '16'
-
-      - name: Setup Python3 environment
-        uses: actions/setup-python@v2
+          version: 6
+      - uses: actions/setup-node@v2
         with:
-          python-version: '3.10.x'
-          architecture: 'x64'
-
-      - run: npm install -g pnpm
+          node-version: "16"
+          cache: "pnpm"
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "3.10.x"
+          architecture: "x64"
       - run: pnpm config set registry https://registry.npmmirror.com/
       - run: pnpm install
       - run: pnpm run build
@@ -28,8 +27,7 @@ jobs:
       - run: python3 ./python_scripts/compress_by_gzip.py
       - run: python3 ./python_scripts/convert_img2webp.py
       - run: tar -zcvf release.tgr.gz ./public/
-
-      - name: copy file via ssh key
+      - name: Copy file via ssh key
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -37,7 +35,6 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "release.tgr.gz"
           target: "/tmp"
-
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:

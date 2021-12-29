@@ -18,7 +18,7 @@ git clone git@github.com:Redlnn/blog.redlnn.top.git
 
 > 进入本仓库根目录后再执行命令  
 > 执行前，请确保已配置好 `Node.js` 及 `npm`，并全局安装了 `pnpm`  
-> 环境：`Node.js@^14.18.1` & `pnpm@^6.18.0`
+> 环境：`Node.js@^16.13.1` & `pnpm@^6.24.4`
 
 ```bash
 pnpm install

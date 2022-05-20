@@ -19,39 +19,25 @@ for _ in os.listdir(os.path.join('source', 'img')):
         else:
             with Image.open(f_path) as f:
                 longest = f.width if f.width > f.width else f.height
-                flag = True if f.width > f.height else False
-                if flag:
-                    if f.width > 800:
-                        if f.width >= 2160:
+                flag = f.width > f.height
+                if f.width > 800:
+                    if f.width >= 2160:
+                        if flag:
                             f = f.resize((1920, int(f.height/(f.width/1920))),
                                          resample=Image.LANCZOS, reducing_gap=True)
-                        elif 1920 > f.width >= 1280:
-                            f = f.resize((1280, int(f.height/(f.width/1280))),
-                                         resample=Image.LANCZOS, reducing_gap=True)
-                        elif 1280 > f.width >= 800:
-                            f = f.resize((800, int(f.height/(f.width/800))),
-                                         resample=Image.LANCZOS, reducing_gap=True)
-                        f.save(convert_path, 'WebP',
-                               quality=70, method=6, allow_mixed=True)
-                    else:
-                        f.save(convert_path, 'WebP',
-                               quality=80, method=6, allow_mixed=True)
-                else:
-                    if f.width > 800:
-                        if f.width >= 2160:
+                        else:
                             f = f.resize((int(f.width/(f.height/1920)), 1920),
                                          resample=Image.LANCZOS, reducing_gap=True)
-                        elif 1920 > f.width >= 1280:
-                            f = f.resize((int(f.width/(f.height/1280)), 1280),
-                                         resample=Image.LANCZOS, reducing_gap=True)
-                        elif 1280 > f.width >= 800:
-                            f = f.resize((int(f.width/(f.height/800)), 800),
-                                         resample=Image.LANCZOS, reducing_gap=True)
-                        f.save(convert_path, 'WebP',
-                               quality=70, method=6, allow_mixed=True)
-                    else:
-                        f.save(convert_path, 'WebP',
-                               quality=80, method=6, allow_mixed=True)
-
+                    elif 1920 > f.width >= 1280:
+                        f = f.resize((1280, int(f.height/(f.width/1280))),
+                                     resample=Image.LANCZOS, reducing_gap=True)
+                    elif 1280 > f.width >= 800:
+                        f = f.resize((800, int(f.height/(f.width/800))),
+                                     resample=Image.LANCZOS, reducing_gap=True)
+                    f.save(convert_path, 'WebP',
+                           quality=70, method=6, allow_mixed=True)
+                else:
+                    f.save(convert_path, 'WebP',
+                           quality=80, method=6, allow_mixed=True)
             print(
                 f'{_}: {round(os.path.getsize(f_path)/1024, 2)}KB -> {round(os.path.getsize(convert_path)/1024, 2)}KB')

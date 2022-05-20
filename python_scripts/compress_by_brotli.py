@@ -36,7 +36,7 @@ def listdir(dirpath):
 
 
 if __name__ == '__main__':
-    if not os.path.exists(os.path.join('public')):
-        print('Error: 找不到 public 文件夹')
-    else:
+    if os.path.exists(os.path.join('public')):
         listdir(os.path.join('public'))
+    else:
+        print('Error: 找不到 public 文件夹')

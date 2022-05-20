@@ -19,10 +19,9 @@ for _ in os.listdir(os.path.join('source', 'img')):
         else:
             with Image.open(f_path) as f:
                 longest = f.width if f.width > f.width else f.height
-                flag = f.width > f.height
                 if f.width > 800:
                     if f.width >= 2160:
-                        if flag:
+                        if f.width > f.height:
                             f = f.resize((1920, int(f.height/(f.width/1920))),
                                          resample=Image.LANCZOS, reducing_gap=True)
                         else:

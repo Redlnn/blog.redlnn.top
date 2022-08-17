@@ -1,17 +1,17 @@
 ---
-title: 在 Debian 11 上安装 Nginx 并启用 HTTPS
+title: 在 Linux 上安装 Nginx 并启用 HTTPS
 date: 2021-12-19 21:11:00
 categories:
     - Nginx
 tags:
     - Nginx
-    - Debian
+    - Linux
 index_img: /img/nginx.webp
 ---
 
 ## 前提
 
-本文假设你使用的是`Debian 11`系统，且具有一定的`Linux`基础
+本文假设你使用的是 `Debian 11` 系统，且具有一定的 `Linux` 基础
 
 ## 安装 Nginx
 
@@ -21,73 +21,73 @@ index_img: /img/nginx.webp
 
 1. 安装基础工具
 
-  ```bash
-  sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
-  ```
+   ```bash
+   sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+   ```
 
 2. 导入 Nginx 官方的签名密钥，以便 apt 可以验证软件包的真实性
 
-  ```bash
-  curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
-      | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
-  ```
+   ```bash
+   curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
+       | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+   ```
 
 3. 验证导入的签名密钥
 
-  ```bash
-  gpg --dry-run --quiet --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
-  ```
+   ```bash
+   gpg --dry-run --quiet --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+   ```
 
-  > 请检查输出值是否等于以下内容
+   > 请检查输出值是否等于以下内容
 
-  ```gpg
-  pub   rsa2048 2011-08-19 [SC] [expires: 2024-06-14]
-        573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
-  uid                      nginx signing key <signing-key@nginx.com>
-  ```
+   ```gpg
+   pub   rsa2048 2011-08-19 [SC] [expires: 2024-06-14]
+         573BFD6B3D8FBC641079A6ABABF5BD827BD9BF62
+   uid                      nginx signing key <signing-key@nginx.com>
+   ```
 
 4. 此处使用`mainline`通道的 Nginx （即最新版，稳定版请参阅文档使用`Stable`通道，这个通道的概念与`Windows`的更新通道类似）
 
-  ```bash
-  echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
-  http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \
-      | sudo tee /etc/apt/sources.list.d/nginx.list
-  ```
+   ```bash
+   echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] \
+   http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx" \
+       | sudo tee /etc/apt/sources.list.d/nginx.list
+   ```
 
 5. 优先使用 Nginx 官方源而不是`Debian`默认源的 Nginx
 
-  ```bash
-   echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
-      | sudo tee /etc/apt/preferences.d/99nginx
-  ```
+   ```bash
+    echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" \
+       | sudo tee /etc/apt/preferences.d/99nginx
+   ```
 
 6. 安装 Nginx
 
-  ```bash
-  sudo apt update
-  sudo apt install nginx nginx-module-geoip nginx-module-image-filter nginx-module-njs nginx-module-perl nginx-module-xslt
-  ```
+   ```bash
+   sudo apt update
+   sudo apt install nginx nginx-module-geoip nginx-module-image-filter nginx-module-njs nginx-module-perl nginx-module-xslt
+   ```
 
 7. 启用 Brotil 压缩算法
 
-  > 请参考我的[这篇文章](/2021/10/03/enable-brotli-support-without-recompiling-nginx/)
+   > 请参考我的[这篇文章](/2021/10/03/enable-brotli-support-without-recompiling-nginx/)
 
 8. 启动 Nginx 并设置为开机启动
 
-  ```bash
-  sudo systemctl start nginx
-  sudo systemctl enable nginx
-  ```
+   ```bash
+   sudo systemctl start nginx
+   sudo systemctl enable nginx
+   ```
 
-  此时你就可以通过你服务器的 IP 或指向该 IP 的域名访问服务器，若没有问题，你将会看到 Nginx 的示例页面
+   此时你就可以通过你服务器的 IP 或指向该 IP 的域名访问服务器，若没有问题，你将会看到 Nginx 的示例页面
 
 9. 一些常用的 Nginx 命令
 
-  ```bash
-  sudo nginx -V # 查看 Nginx 版本与编译信息
-  sudo nginx -t # 校验配置文件是否正确
-  sudo nginx -s reload # 重载配置文件
-  ```
+   ```bash
+   sudo nginx -V # 查看 Nginx 版本与编译信息
+   sudo nginx -t # 校验配置文件是否正确
+   sudo nginx -s reload # 重载配置文件
+   ```
 
 ## 配置 Nginx
 

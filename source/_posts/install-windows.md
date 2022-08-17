@@ -5,7 +5,6 @@ categories: 操作系统
 tags:
     - 操作系统
     - Windows
-    - Windows 10
 index_img: /img/windows10.webp
 ---
 

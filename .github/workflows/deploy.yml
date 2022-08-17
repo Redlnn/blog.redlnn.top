@@ -7,26 +7,37 @@ jobs:
     if: github.actor != 'depbot'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@main
-      - uses: pnpm/action-setup@v2
+      - uses: actions/checkout@v3
         with:
-          version: 6
-      - uses: actions/setup-node@v2
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
         with:
-          node-version: "16"
-          cache: "pnpm"
-      - uses: actions/setup-python@v2
+          version: 7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '>=18'
+          cache: 'pnpm'
+
+      - uses: actions/setup-python@v4
         with:
           python-version: "3.10.x"
           architecture: "x64"
-      - run: pnpm config set registry https://registry.npmmirror.com/
-      - run: pnpm install
-      - run: pnpm run build
-      - run: python3 -m pip install -r requirements.txt
-      - run: python3 ./python_scripts/compress_by_brotli.py
-      - run: python3 ./python_scripts/compress_by_gzip.py
-      - run: python3 ./python_scripts/convert_img2webp.py
-      - run: tar -zcvf release.tgr.gz ./public/
+
+      - name: Build
+        run: |
+          pnpm config set registry https://registry.npmmirror.com/
+          pnpm install
+          pnpm build
+          python3 -m pip install -r requirements.txt
+          python3 ./python_scripts/compress_by_brotli.py
+          python3 ./python_scripts/compress_by_gzip.py
+          python3 ./python_scripts/convert_img2webp.py
+          tar -zcvf release.tgr.gz ./public/
+
       - name: Copy file via ssh key
         uses: appleboy/scp-action@master
         with:
@@ -35,6 +46,7 @@ jobs:
           key: ${{ secrets.KEY }}
           source: "release.tgr.gz"
           target: "/tmp"
+
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:

@@ -5,7 +5,6 @@ categories: 操作系统
 tags:
     - 操作系统
     - Linux
-    - Debian
 index_img: /img/debian.webp
 ---
 

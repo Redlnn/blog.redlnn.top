@@ -1,11 +1,11 @@
 ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #aaa;
-    border-radius: 6px;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -21,12 +21,12 @@
 }
 
 .highlight ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 0 0 3px 3px;
-    background-color: #282c34;
+    background-color: var(--highlight-bg-color);
 }
 
 [data-user-color-scheme=dark] .highlight ::-webkit-scrollbar {
-    background-color: #24282f;
+    background-color: var(--highlight-bg-color);
 }

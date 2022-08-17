@@ -1,0 +1,12 @@
+figure.highlight td.code > pre {
+  margin-left: 0;
+  background-color: var(--highlight-bg-color);
+}
+
+figure.highlight td.gutter pre {
+  background-color: var(--highlight-bg-color);
+}
+
+.markdown-body code br {
+  display: inline;
+}

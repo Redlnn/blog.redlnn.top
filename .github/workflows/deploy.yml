@@ -29,7 +29,6 @@ jobs:
 
       - name: Build
         run: |
-          pnpm config set registry https://registry.npmmirror.com/
           pnpm install
           pnpm build
           python3 -m pip install -r requirements.txt

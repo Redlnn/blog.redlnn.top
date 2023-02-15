@@ -14,8 +14,8 @@
     "version": "6.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.25.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "hexo": "^6.3.0",
     "hexo-all-minifier": "^0.5.7",
@@ -24,13 +24,13 @@
     "hexo-generator-index": "^3.0.0",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-markdown-it": "^6.1.0",
+    "hexo-renderer-markdown-it": "^7.0.0",
     "hexo-renderer-stylus": "^2.1.0",
     "hexo-server": "^3.0.0",
-    "hexo-theme-fluid": "^1.9.3",
-    "highlight.js": "^11.6.0",
+    "hexo-theme-fluid": "^1.9.4",
+    "highlight.js": "^11.7.0",
     "nunjucks": "^3.2.3",
-    "prettier": "^2.7.1",
+    "prettier": "^2.8.4",
     "stylus": "^0.59.0"
   }
 }
